@@ -14,15 +14,20 @@ const app = express();
 //  middlewares
 app.use(helmet());
 
-app.use(middlewares.notFound);
-
-app.use(middlewares.errorHandler);
+app.use(express.static('dist/typeracer-clone'));
 
 const port = process.env.PORT || 80;
 
 const server = app.listen(port, () => {
   console.log('Server Listening at port ', port);
 }); //  returns http object
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname));
+});
+app.use(middlewares.notFound);
+
+app.use(middlewares.errorHandler);
 
 const io = socketio(server); //  passing express-server object to socketio server
 
@@ -34,11 +39,5 @@ mongoose.connect(
     console.log('Connected to database!');
   }
 );
-
-app.use(express.static('dist/typeracer-clone'));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname));
-});
 
 io.on('connect', socketIoHandler(io));
