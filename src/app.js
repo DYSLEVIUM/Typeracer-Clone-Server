@@ -12,7 +12,7 @@ const socketIoHandler = require('./utils/socketIoHandler'); //  socketHandler
 const app = express();
 
 //  middlewares
-app.use(helmet());
+// app.use(helmet());
 
 app.use(express.static('dist/typeracer-clone'));
 
@@ -24,7 +24,9 @@ const server = app.listen(port, () => {
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname));
+  res.set('Content-Security-Policy');
 });
+
 app.use(middlewares.notFound);
 
 app.use(middlewares.errorHandler);
@@ -33,7 +35,7 @@ const io = socketio(server); //  passing express-server object to socketio serve
 
 //  connecting to mongodb atlas
 mongoose.connect(
-  'mongodb+srv://pushpa:pushpa@typeracer-clone.fgjma.mongodb.net/typeracer-clone?retryWrites=true&w=majority',
+  `mongodb+srv://${process.env.dbuser}:${process.env.dbpass}@typeracer-clone.fgjma.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('Connected to database!');
