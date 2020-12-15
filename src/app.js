@@ -28,7 +28,7 @@ app.use(middlewares.notFound);
 
 app.use(middlewares.errorHandler);
 
-const port = process.env.PORT || 80;
+const port = 80;
 
 const server = app.listen(port, () => {
   console.log('Server Listening at port ', port);
