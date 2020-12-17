@@ -1,4 +1,4 @@
-# Typeracer Clone Server
+# Typeracer Clone Server [![Netlify Status](https://api.netlify.com/api/v1/badges/5d0611fb-5bff-4839-b488-3f027a7a9a8d/deploy-status)](https://app.netlify.com/sites/affectionate-swanson-1841b5/deploys)
 
 This repository contains the server side of the application. 
 
