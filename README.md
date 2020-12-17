@@ -1,6 +1,8 @@
 # Typeracer Clone Server
 
-This repository contains the server side of the application. The original repository is at https://github.com/Pushpakant/Typeracer-Clone.
+This repository contains the server side of the application. 
+
+The original repository is at https://github.com/Pushpakant/Typeracer-Clone.
 
 This server is hosted using heroku. 
 
