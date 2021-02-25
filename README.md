@@ -6,7 +6,7 @@ The original repository is at https://github.com/Pushpakant/Typeracer-Clone.
 
 This server is hosted using heroku. 
 
-The application is live at https://affectionate-swanson-1841b5.netlify.app.
+The application is live at https://typeracer-clone-socket.netlify.app.
 
 ##  Demo
 
