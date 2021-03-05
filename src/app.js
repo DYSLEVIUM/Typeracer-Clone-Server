@@ -35,7 +35,7 @@ const io = socketio(server); //  passing express-server object to socketio serve
 
 //  connecting to mongodb atlas
 mongoose.connect(
-  `mongodb+srv://${process.env.dbuser}:${process.env.dbpass}@typeracer-clone.fgjma.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.dbuser}:${process.env.dbpass}@${process.env.clusterName}.fgjma.mongodb.net/${process.env.dbname}?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('Connected to database!');
