@@ -18,15 +18,15 @@ app.use(helmet());
 
 app.use(express.static('dist/typeracer-clone'));
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 const server = app.listen(port, () => {
 	console.log('Server Listening at port ', port);
 }); //  returns http object
 
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname));
 	res.set('Content-Security-Policy');
+	res.sendFile(path.join(__dirname));
 });
 
 app.use(middlewares.notFound);
